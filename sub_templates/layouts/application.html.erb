@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<%= render('layouts/head') %>
+<body>
+
+  <div id="container">
+
+    <div id='header'>
+      <%= render('layouts/logo') %>
+      <%= render('layouts/account_menu') %>
+    </div>
+    
+    <div id='content'>
+      <%= render('layouts/ajax') %>
+      <%= render('layouts/flash', :flash => flash) %>
+      <%= render('layouts/menu') %>
+      <%= yield %>
+    </div>
+    
+    <div id='sidebar'>
+      <%= yield :sidebar %>
+    </div>
+
+    <%= render('layouts/footer') %>
+
+  </div>
+
+</body>
+</html>

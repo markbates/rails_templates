@@ -1,0 +1,10 @@
+<div id='menu'>
+  <ul>
+    <li><%= link_to('Menu 1', '#' %></li>
+    <li><%= link_to('Menu 2', '#' %></li>
+    <li><%= link_to('Menu 3', '#' %></li>
+  </ul>
+</div>
+<% unless yield(:sub_menu).blank? %>
+  <div id='sub_menu'><%= yield :sub_menu %></div>
+<% end %>
