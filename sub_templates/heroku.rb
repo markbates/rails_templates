@@ -87,6 +87,7 @@ EOF
     end
     
     Heroku.execute "config:add RACK_ENV=\#{@env}"
+    Heroku.execute "config:add BUNDLE_WITHOUT=development:test"
     
     # %w{HOPTOAD_KEY S3_KEY S3_SECRET}.each do |key|
     #   Heroku.execute "config:add \#{key}=\#{ENV[key]}" unless ENV[key].nil? || ENV[key] == ''

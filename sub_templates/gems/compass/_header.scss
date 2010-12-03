@@ -1,0 +1,14 @@
+#header {
+  @include container();
+  #logo {
+    @include column(14);
+    font-size: 48px;
+  }
+  
+  #account_menu {
+    @include column(10);
+    @include last();
+    text-align: right;
+  }
+  
+} // #header

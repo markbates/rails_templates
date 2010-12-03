@@ -2,7 +2,7 @@ gem 'compass'
 
 run 'bundle install'
 
-run "compass init rails . --using blueprint/basic"
+run "compass init rails . --using blueprint/basic --force"
 
 append_to_file 'config/initializers/compass.rb', <<-FILE
 
@@ -24,11 +24,19 @@ Rails.configuration.middleware.insert_before('Rack::Sendfile', 'Rack::Static',
                                              :root => "\#{Rails.root}/tmp")
 FILE
 
-file 'app/stylesheets/partials/_utils.scss', <<-FILE
-@mixin reset-mp {
-  padding: 0px;
-  margin: 0px;
+append_to_file 'app/stylesheets/screen.scss', <<-FILE
+
+#container {
+  @include container();
+  @include showgrid();
 }
+
 FILE
 
-append_to_file 'app/stylesheets/screen.scss', '@import "partials/utils";'
+Dir.glob(File.join(File.dirname(__FILE__), 'compass', '*.*')) do |f|
+  base = File.basename(f)
+  File.open("app/stylesheets/partials/#{base}", 'w') do |out| 
+    out.write(File.read(File.expand_path(f)))
+  end
+  append_to_file 'app/stylesheets/screen.scss', %{@import "partials/#{base.gsub('.scss', '')}";\n}
+end

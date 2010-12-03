@@ -1,10 +1,10 @@
-inject_into_file('Gemfile', :after => "group(:development, :test) do\n") do
-  <<-FILE
+append_to_file 'Gemfile', <<-FILE
+group(:development, :test) do
   gem "rspec-rails", ">= 2.2.0"
   gem 'remarkable', '>= 4.0.0.alpha4', :require => false
   gem 'remarkable_activerecord', '>=4.0.0.alpha4'
-  FILE
 end
+FILE
 
 run 'bundle install'
 
