@@ -1,7 +1,7 @@
 gem 'delayed_job', '2.1.1'#, :git => 'git://github.com/collectiveidea/delayed_job.git'
 gem "dj_remixes"
 
-file "db/migrate/#{Time.now.strftime('%Y%m%d%H%M%S%L')}_create_delayed_jobs.rb", <<-FILE
+file "db/migrate/#{Time.now.strftime('%Y%m%d%H%M%S')}_create_delayed_jobs.rb", <<-FILE
 class CreateDelayedJobs < ActiveRecord::Migration
   def self.up
     create_table :delayed_jobs, :force => true do |t|
