@@ -34,7 +34,7 @@ end
 File.open('config/configatron/production.rb', 'w') do |file|
   file.write <<-FILE
 # site:
-configatron.site.host = '#{@app_name}-production.heroku.com'
+configatron.site.host = 'www.#{@app_name}.com'
 configatron.site.ssl.enabled = true
 configatron.site.ssl.protocol = 'https'
 FILE

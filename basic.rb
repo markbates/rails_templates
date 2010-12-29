@@ -1,8 +1,8 @@
 # rm -rfv some_crazy_app; rails new some_crazy_app -T -J --database=postgresql -m basic.rb
 
-require 'rubygems'
-require 'mark_facets'
-require 'erb'
+# require 'rubygems'
+# require 'mark_facets'
+# require 'erb'
 
 # puts ARGV.inspect
 # puts options.inspect

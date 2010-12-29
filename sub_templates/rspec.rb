@@ -1,8 +1,10 @@
 append_to_file 'Gemfile', <<-FILE
 group(:development, :test) do
-  gem "rspec-rails", ">= 2.2.0"
+  gem "rspec-rails"
   gem 'remarkable', '>= 4.0.0.alpha4', :require => false
   gem 'remarkable_activerecord', '>=4.0.0.alpha4'
+  gem 'syntax'
+  gem 'email_spec'
 end
 FILE
 
@@ -20,6 +22,16 @@ inject_into_file('spec/spec_helper.rb', :after => "require 'rspec/rails'\n") do
 <<-FILE
 require 'remarkable/core'
 require 'remarkable/active_record'
+require "email_spec"
+FILE
+end
+
+inject_into_file('spec/spec_helper.rb', :after => "RSpec.configure do |config|\n") do
+<<-FILE
+
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
+
 FILE
 end
 

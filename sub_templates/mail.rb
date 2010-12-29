@@ -1,3 +1,11 @@
+generate(:mailer, 'Postman')
+
+inject_into_file('app/mailers/postman.rb', :after => "class Postman < ActionMailer::Base\n") do
+<<-FILE
+  default :from => configatron.email.defaults.from
+FILE
+end
+
 initializer 'mail.rb', <<-FILE
 ActionMailer::Base.default_url_options[:host] = configatron.site.host
 
@@ -5,7 +13,7 @@ ActionMailer::Base.default_url_options[:host] = configatron.site.host
 ActionMailer::Base
 
 # Delayed::Job needs to load the ActionMailers:
-# Postman
+Postman
 
 #  Prevent emails to outside addresses:
 module Mail

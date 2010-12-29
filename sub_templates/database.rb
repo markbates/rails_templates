@@ -1,3 +1,5 @@
+run "bundle install"
+
 File.open('config/database.yml', 'w') do |f|
   f.write <<-FILE
 development:
