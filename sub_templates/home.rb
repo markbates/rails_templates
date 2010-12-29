@@ -1,6 +1,6 @@
 generate(:controller, 'home', '--no-helper')
 
-inject_into_file('config/routes.rb', :after => "SomeCrazyApp::Application.routes.draw do\n") do
+inject_into_file('config/routes.rb', :after => "Application.routes.draw do\n") do
 <<-FILE
 
   root :to => "home#index"

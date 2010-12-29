@@ -20,11 +20,11 @@ apply('assets.rb')
 
 apply('jquery.rb')
 
-apply('rspec.rb') # run before other gems to ensure they can add to the spec_helper.rb file.
-
 apply('application.js.rb')
 
 apply('application.rb')
+
+apply('rspec.rb') # run before other gems to ensure they can add to the spec_helper.rb file.
 
 apply('layouts.rb')
 
@@ -37,5 +37,7 @@ apply('gems.rb')
 apply('plugins.rb')
 
 apply('home.rb')
+
+apply('mail.rb')
 
 apply('heroku.rb')

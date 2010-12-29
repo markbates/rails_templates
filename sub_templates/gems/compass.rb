@@ -33,6 +33,8 @@ append_to_file 'app/stylesheets/screen.scss', <<-FILE
 
 FILE
 
+gsub_file('config/compass.rb', 'public/stylesheets/compiled', 'tmp/stylesheets/compiled')
+
 Dir.glob(File.join(File.dirname(__FILE__), 'compass', '*.*')) do |f|
   base = File.basename(f)
   File.open("app/stylesheets/partials/#{base}", 'w') do |out| 

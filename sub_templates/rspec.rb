@@ -16,8 +16,17 @@ ENV["RAILS_ASSET_ID"] = '1234567890' # set the asset to a constant # => "/images
 
 FILE
 
+inject_into_file('spec/spec_helper.rb', :after => "require 'rspec/rails'\n") do
+<<-FILE
+require 'remarkable/core'
+require 'remarkable/active_record'
+FILE
+end
+
 inject_into_file('spec/spec_helper.rb', :after => "config.use_transactional_fixtures = true\n") do
 <<-FILE
+
+  config.global_fixtures = :all
 
   config.before(:each) do
     ActionMailer::Base.deliveries = []
