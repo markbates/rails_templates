@@ -41,3 +41,7 @@ apply('home.rb')
 apply('mail.rb')
 
 apply('heroku.rb')
+
+apply('devise.rb')
+
+apply('git.rb')

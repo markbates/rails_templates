@@ -1,4 +1,4 @@
-gem "hoptoad_notifier", '>=2.3.12'
+gem "hoptoad_notifier"
 
 run 'bundle install'
 

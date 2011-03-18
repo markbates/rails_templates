@@ -28,6 +28,11 @@ inject_into_file('app/helpers/application_helper.rb', :after => "module Applicat
     content_for(:head) { javascript_include_tag(*args) }
     content_for(:scripts, &block)
   end
+  
+  def timeago(time, options = {})
+    options[:class] ||= "timeago"
+    content_tag(:span, time.to_s, options.merge(:title => time.getutc.iso8601)) if time
+  end
 
 FILE
 end
@@ -88,6 +93,15 @@ describe ApplicationHelper do
       helper.javascript('foo') do
         "var 1;"
       end
+    end
+    
+  end
+  
+  describe "timeago" do
+    
+    it "should return a tag of the time" do
+      time = Time.now
+      helper.timeago(time).should == "<span class=\\"timeago\\" title=\\"\#{time.getutc.iso8601}\\">\#{time.to_s}</span>"
     end
     
   end

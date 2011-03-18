@@ -1,4 +1,4 @@
-gem "formtastic", '>= 1.2.0.beta'
+gem "formtastic"
 
 run 'bundle install'
 

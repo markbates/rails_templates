@@ -1,57 +1,20 @@
 #loading {
-  width:100px;
-  height: 100px;
+  z-index: 9999;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  background:url(/images/ajax_spinner.gif) no-repeat center #fff;
-  text-align:center;
-  padding:10px;
-  font:normal 20px Tahoma, Geneva, sans-serif;
-  border:1px solid #666;
-  margin-left: -50px;
-  margin-top: -50px;
-  z-index:2;
-  overflow: auto;
-  color: black;
-/*  text-shadow: #666666 5px 5px 5px;*/
-}
-
-/* the overlayed element */
-.simple_overlay {
-  
-  /* must be initially hidden */
-  display:none;
-  
-  /* place overlay on top of other elements */
-  z-index: 50000;
-  
-  /* styling */
-  background-color:#fff;
-  
-  width:400px;  
-  min-height:300px;
-  height: 300px;
-  border:1px solid #D1D3D4;
-  
-  /* CSS3 styling for latest browsers */
-  -moz-box-shadow:0 0 50px 5px #BCBEC0;
-  -webkit-box-shadow: 0 0 50px #BCBEC0;  
-}
-
-/* close button positioned on upper right corner */
-.simple_overlay .close {
-  background-image:url(/images/lightbox_close.png);
-  position:absolute;
-  right:-15px;
-  top:-15px;
-  cursor:pointer;
-  height:35px;
-  width:35px;
-}
-
-.contentWrap {
-  margin: 15px;
-  overflow: auto;
-  max-height: 95%;
+  bottom: 0px;
+  right: 0px;
+  background: #666;
+  color: white;
+  width: 200px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 14px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-left-radius: 5px;
+  img {
+    vertical-align: text-top;
+  }
+  display: none;
 }

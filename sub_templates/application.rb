@@ -14,3 +14,9 @@ inject_into_file('config/application.rb', :after => "class Application < Rails::
 
 FILE
 end
+
+inject_into_file('config/environments/development.rb', :after => "::Application.configure do\n") do
+<<-FILE
+  config.log_level = :info
+FILE
+end
