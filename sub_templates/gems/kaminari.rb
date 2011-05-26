@@ -49,6 +49,7 @@ FILE
 
 inject_into_file('app/helpers/application_helper.rb', :after => "module ApplicationHelper\n") do
 <<-FILE
+
   def page_entries_info(collection)
     # Displaying posts 6 - 10 of 26 in total
     return '' if collection.total_count == 0

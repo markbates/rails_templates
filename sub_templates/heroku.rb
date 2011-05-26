@@ -1,9 +1,21 @@
 gem 'yamler'
-if yes?("Do you want to use Heroku?")
+
+if ENV['all'] || yes?("Do you want to use Heroku?")
+  gsub_file('config/environments/production.rb', 'config.serve_static_assets = false', 'config.serve_static_assets = true')
+  
+  append_to_file('Gemfile') do
+<<-FILE
+group(:staging, :production) do
+  gem 'therubyracer-heroku', '>=0.8.1.pre3'
+end
+FILE
+  end
+  
+  
   inject_into_file('Gemfile', :after => "group(:development, :test) do\n") do
 <<-FILE
-    gem 'heroku'
-    gem 'taps'
+  gem 'heroku'
+  gem 'taps'
 FILE
   end
 
@@ -75,8 +87,8 @@ namespace :heroku do
 	fetch = +refs/heads/*:refs/remotes/heroku-\#{Heroku.env}/*
 EOF
     end
-    Rake::Task['heroku:deploy'].invoke
     Rake::Task['heroku:setup'].invoke
+    Rake::Task['heroku:deploy'].invoke
   end
 
   task :setup, :env do |t, args|

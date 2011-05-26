@@ -24,10 +24,6 @@ configatron.email.allowable_domains = [/^.+@#{app_name}.com$/, /^.+@markbates.co
 
 # pagination:
 configatron.pagination.per_page = 20
-
-# dates:
-configatron.date.formats.time = '%m/%d/%Y at %I:%M%p'
-configatron.date.formats.date = '%m/%d/%Y'
 FILE
 end
 

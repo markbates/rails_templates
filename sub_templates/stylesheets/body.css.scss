@@ -1,0 +1,48 @@
+@import '_util_methods.css.scss';
+@import '960.css.scss';
+
+body {
+  background-color: $background-color;
+  color: $font_color;
+  font-family: Helvetica, Arial, "MS Trebuchet", sans-serif;
+  text-align: left;
+  
+  a {
+    color: $link_color;
+    text-decoration: none;
+    &:visited {
+      color: $link_color;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  } // a
+  
+  #container {
+    @extend .container_12;
+    
+    #header {
+      overflow: auto;
+      margin-bottom: 10px;
+
+      #logo {
+        @extend .grid_5;
+        font-size: 32px;
+        font-weight: bold;
+      } // #logo
+
+      #account_menu {
+        @extend .grid_7;
+        text-align: right;
+      } // #header
+
+    } // #header
+    
+  } // #container
+  
+  #footer {
+    @extend .grid_12;
+    text-align: center;
+  }
+  
+} // body

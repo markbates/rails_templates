@@ -1,14 +1,16 @@
 generate(:mailer, 'Postman')
 
-inject_into_file('app/mailers/postman.rb', :after => "class Postman < ActionMailer::Base\n") do
+gsub_file('app/mailers/postman.rb', 'default from: "from@example.com"', 'default :from => configatron.email.defaults.from')
+
+inject_into_file('config/application.rb', :after => "class Application < Rails::Application\n") do
 <<-FILE
-  default :from => configatron.email.defaults.from
+
+    config.action_mailer.default_url_options = {:host => configatron.site.host}
+
 FILE
 end
 
 initializer 'mail.rb', <<-FILE
-ActionMailer::Base.default_url_options[:host] = configatron.site.host
-
 # We need to load ActionMailer to be able to extend it:
 ActionMailer::Base
 

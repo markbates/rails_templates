@@ -1,4 +1,4 @@
-# rm -rfv some_crazy_app; rails new some_crazy_app -T -J --database=postgresql -m basic.rb
+# rm -rfv some_crazy_app; rails new some_crazy_app -T --database=postgresql -m ~/websites/rails_templates/basic.rb
 
 # require 'rubygems'
 # require 'mark_facets'
@@ -8,15 +8,17 @@
 # puts options.inspect
 # puts self.inspect
 
+ENV['all'] = 'yes'
+
 source_paths << File.join(File.dirname(__FILE__), 'sub_templates')
 
 apply('rvm.rb')
 
+apply('fix_rake_gem.rb')
+
 apply('clean_public_folder.rb') # clean up public folder crap
 
 apply('database.rb')
-
-apply('assets.rb')
 
 apply('jquery.rb')
 
@@ -43,5 +45,7 @@ apply('mail.rb')
 apply('heroku.rb')
 
 apply('devise.rb')
+
+apply('stylesheets.rb')
 
 apply('git.rb')

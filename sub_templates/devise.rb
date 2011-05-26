@@ -1,4 +1,4 @@
-if yes?("Do you want to use Devise?")
+if ENV['all'] || yes?("Do you want to use Devise?")
   
   gem 'devise'
   
@@ -7,7 +7,7 @@ if yes?("Do you want to use Devise?")
   generate('devise:install')
   
   gsub_file('config/initializers/devise.rb', 
-            'config.mailer_sender = "please-change-me@config-initializers-devise.com"', 
+            'config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"', 
             %{config.mailer_sender = configatron.email.defaults.from})
   
 #   inject_into_file('config/initializers/devise.rb', :after => "# config.http_authenticatable = false\n") do
@@ -194,5 +194,7 @@ FILE
   end
   
   rake 'db:migrate'
+  
+  run "cp -rf #{File.join(File.dirname(__FILE__), 'devise')} app/views"
   
 end

@@ -1,4 +1,4 @@
-plugin('ssl_requirement', :git => 'http://github.com/rails/ssl_requirement.git')
+plugin('ssl_requirement', :git => 'http://github.com/bartt/ssl_requirement.git')
 plugin('annotate_models', :git => 'http://github.com/markbates/annotate_models.git')
 
 inject_into_file('app/controllers/application_controller.rb', "  include SslRequirement\n", :after => "class ApplicationController < ActionController::Base\n")

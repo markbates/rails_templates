@@ -1,0 +1,14 @@
+<%= title 'Update Account' %>
+
+<%= semantic_form_for(@user, :url => account_update_path, :html => { :method => :put }) do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :password, :hint => "leave blank if you don't want to change it" %>
+    <%= f.input :password_confirmation %>
+    <%= f.input :current_password, :hint => "we need your current password to confirm your changes" %>
+  <% end %>
+  <%= f.buttons do %>
+    <%= f.commit_button 'Update Account' %>
+  <% end %>
+<% end %>

@@ -1,2 +1,3 @@
 run "rm public/index.html"
-run "rm public/images/rails.png"
+run "rm -rf public/images"
+run "rm -rf app/assets/images"

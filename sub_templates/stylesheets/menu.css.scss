@@ -1,0 +1,19 @@
+@import '_util_methods.css.scss';
+
+#container {
+  
+  #menu {
+    @include flat-list();
+    background-color: $menu_background_color;
+    padding: 10px;
+    ul {
+      li {
+        padding: 10px;
+      }
+    }
+    a {
+      color: $menu_link_color;
+    }
+  }
+  
+} // #container 

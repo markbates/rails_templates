@@ -37,3 +37,17 @@ inject_into_file('config/application.rb', :after => "config.autoload_paths << Fi
     config.autoload_paths << File.join(Rails.root, 'lib', 'workers')
 FILE
 end
+
+file 'lib/tasks/dj.rake', <<-FILE
+namespace :dj do
+  
+  task :retry_jobs => [:environment] do
+    DJ.where('last_error is not null').each do |job|
+      job.attempts = 0
+      job.run_at = Time.now
+      job.save
+    end
+  end
+  
+end
+FILE

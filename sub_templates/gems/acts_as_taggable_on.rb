@@ -1,4 +1,4 @@
-if yes?("Do you want to use Acts as Taggable?")
+if ENV['all'] || yes?("Do you want to use Acts as Taggable?")
   gem 'acts-as-taggable-on'
 
   run 'bundle install'

@@ -1,0 +1,15 @@
+<%= title 'Sign up' %>
+
+<%= semantic_form_for(@user, :url => signup_path) do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  <% end %>
+  <%= f.buttons do %>
+    <%= f.commit_button "Sign up" %>
+  <% end %>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

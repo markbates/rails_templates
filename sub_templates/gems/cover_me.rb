@@ -1,6 +1,6 @@
 inject_into_file('Gemfile', :after => "group(:development, :test) do\n") do
   <<-FILE
-  gem 'cover_me', '>= 1.0.0.rc4', :require => false
+  gem 'cover_me', '>= 1.0.0.rc6', :require => false
   FILE
 end
 

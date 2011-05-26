@@ -1,0 +1,24 @@
+@import '_util_methods.css.scss';
+
+#loading {
+  @include reset-mp();
+  
+  z-index: 9999;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background: #666;
+  color: white;
+  width: 200px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 14px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-left-radius: 5px;
+  img {
+    vertical-align: text-top;
+  }
+  display: none;
+}

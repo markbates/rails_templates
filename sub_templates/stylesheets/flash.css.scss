@@ -1,0 +1,29 @@
+@import '_util_methods.css.scss';
+
+.flash {
+  border: 1px solid #999;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  @include rounded-corners(5px);
+  text-align: center;
+  font-size: 16px;
+}
+
+.flash_alert {
+  border: 1px solid $alert_border_color;
+  background-color: $alert_background_color;
+  color: $alert_font_color;
+}
+
+.flash_notice {
+  border: 1px solid $notice_border_color;
+  background-color: $notice_background_color;
+  color: #000;
+}
+
+.flash_info {
+  border: 1px solid $border_color;
+  background-color: #E6E6E6;
+  color: #000;
+}

@@ -1,0 +1,30 @@
+@import '_colors.css.scss';
+
+@mixin reset-mp {
+  margin: 0px;
+  padding: 0px;
+}
+
+@mixin rounded-corners($size) {
+  -webkit-border-radius: $size;
+  -moz-border-radius: $size;
+  border-radius: $size;
+}
+
+@mixin shadow($x, $y, $z, $color) {
+  -webkit-box-shadow: $x $y $z $color; 
+  -moz-box-shadow: $x $y $z $color; 
+  box-shadow: $x $y $z $color;
+}
+
+@mixin flat-list() {
+  ul {
+    @include reset-mp();
+    li {
+      @include reset-mp();
+      float: none;
+      display: inline;
+      border: 0px;
+    } // li
+  } // ul
+} // flat-list

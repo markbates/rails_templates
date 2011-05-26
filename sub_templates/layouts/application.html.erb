@@ -10,10 +10,11 @@
       <%= render('layouts/account_menu') %>
     </div>
     
+    <%= render('layouts/ajax') %>
+    <%= render('layouts/menu') %>
+    <%= render('layouts/flash', :flash => flash) %>
+    
     <div id='main'>
-      <%= render('layouts/ajax') %>
-      <%= render('layouts/flash', :flash => flash) %>
-      <%= render('layouts/menu') %>
       <%= yield %>
     </div>
     

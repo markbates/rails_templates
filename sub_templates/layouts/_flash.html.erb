@@ -1,5 +1,7 @@
 <div id='flash_messages'>
-  <% flash.each do |name, msg| %>
-    <div id='flash_<%= name %>' class='flash flash_<%= name %>' data-fadeout='5000'><%= msg %></div>
+  <% if flash.any? %>
+    <%= coffee_script_tag do %>
+      <%= set_js_flash_messages(flash) %>
+    <% end %>
   <% end %>
 </div>

@@ -1,23 +1,10 @@
 <head>
   <title><%= yield(:title) %></title>
-  <%= stylesheet_link_tag 'formtastic', :media => 'screen, projection' %>
-  <%= stylesheet_link_tag 'compiled/screen', :media => 'screen, projection' %>
-  <%= stylesheet_link_tag 'compiled/print', :media => 'print' %>
-  <!--[if IE]>
-  <%= stylesheet_link_tag 'compiled/ie', :media => 'screen, projection' %>
-  <![endif]-->
-  <%= javascript_include_tag 'jquery' %>
-  <%= javascript_include_tag 'jqueryui' %>
-  <%= javascript_include_tag 'jquery.timeago' %>
+  <%= stylesheet_link_tag 'application', :media => 'screen, projection' %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'rails' %>
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
   <% unless yield(:scripts).blank? %>
-    <script>
-      $(function() {
-        <%= yield(:scripts) %>
-      })
-    </script>
+    <%= yield(:scripts) %>
   <% end %>
 </head>
